@@ -1,0 +1,85 @@
+"use client";
+
+import { useEffect, useState } from "react";
+export default function Dashboard() {
+  const [books, setBooks] = useState([]);
+  const [newBook, setNewBook] = useState({ title: "", author: "", genre: "" });
+
+  // Fetch books from API
+  useEffect(() => {
+    async function fetchBooks() {
+      const res = await fetch("/api/books");
+      const data = await res.json();
+      setBooks(data);
+    }
+    fetchBooks();
+  }, []);
+
+  // Handle form submission to add a book
+  async function handleAddBook(e: React.FormEvent) {
+    e.preventDefault();
+    const res = await fetch("/api/books", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newBook),
+    });
+
+    const addedBook = await res.json();
+    setBooks([...books, addedBook]); // Update state to show new book
+    setNewBook({ title: "", author: "", genre: "" }); // Clear form
+  }
+  return (
+    <div>
+      <main className="container mx-auto py-10">
+        <h1 className="text-3xl font-bold text-center">Dashboard</h1>
+        {/* Add Book Form */}
+        <div className="mt-6 p-4 bg-white shadow-md rounded-md">
+          <h2 className="text-xl font-semibold">Add a New Book</h2>
+          <form onSubmit={handleAddBook} className="mt-4 space-y-4">
+            <input
+              type="text"
+              placeholder="Book Title"
+              className="w-full p-2 border rounded-md"
+              value={newBook.title}
+              onChange={(e) => setNewBook({ ...newBook, title: e.target.value })}
+              required
+            />
+            <input
+              type="text"
+              placeholder="Author"
+              className="w-full p-2 border rounded-md"
+              value={newBook.author}
+              onChange={(e) => setNewBook({ ...newBook, author: e.target.value })}
+              required
+            />
+            <input
+              type="text"
+              placeholder="Genre"
+              className="w-full p-2 border rounded-md"
+              value={newBook.genre}
+              onChange={(e) => setNewBook({ ...newBook, genre: e.target.value })}
+              required
+            />
+            <button type="submit" className="bg-yellow-400 text-black px-4 py-2 rounded-md">
+              Add Book
+            </button>
+          </form>
+        </div>
+
+        {/* Book List */}
+        <div className="mt-6">
+          <h2 className="text-xl font-semibold">Book List</h2>
+          <div className="grid grid-cols-3 gap-4 mt-4">
+            {books.map((book) => (
+              <div key={book.id} className="p-4 bg-white shadow-md rounded-md">
+                <h3 className="font-bold">{book.title}</h3>
+                <p>Author: {book.author}</p>
+                <p>Genre: {book.genre}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}
