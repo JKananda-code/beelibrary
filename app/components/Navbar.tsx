@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav className="bg-cyan-400 text-black p-4">
       <div className="container mx-auto flex justify-between">
         <Link href="/">
-          <h1 className="text-2xl font-bold bg-yellow-500">Place Bee-Logo Here</h1>
+          <h1 className="text-2xl font-bold bg-yellow-500">Bee-Logo</h1>
         </Link>
         <div className="space-x-4 text-xl font-bold">
           <Link href="/about">About</Link>
