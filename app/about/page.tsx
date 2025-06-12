@@ -47,10 +47,10 @@ export default function About() {
           </p>
           <p className="text-xl font-semibold text-cyan-500 mt-6">
             Welcome to a world of endless possibilities—welcome to The Literary Bee.
-          </p>
+         </p>
         </section>
       </main>
-    
     </div>
   );
 }
+ 

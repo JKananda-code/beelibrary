@@ -2,7 +2,13 @@
 
 import { useEffect, useState } from "react";
 export default function Dashboard() {
-  const [books, setBooks] = useState([]);
+  interface Book{
+    id:number;
+    title:string;
+    author:string;
+    genre:string;
+  }  
+  const [books, setBooks] = useState<Book[]>([]);
   const [newBook, setNewBook] = useState({ title: "", author: "", genre: "" });
 
   // Fetch books from API

@@ -2,13 +2,8 @@
 import { NextResponse } from "next/server";
 
 // Mock book data (replace this with a database later)
-interface Book {
-    id: number;
-    title:string;
-    author:string;
-    genre: string;
-}
-let books: Book [] = [
+
+let books = [
   { id: 1, title: "The Literary Bee", author: "Jane Doe", genre: "Fiction" },
   { id: 2, title: "Imagination Unleashed", author: "John Smith", genre: "Fantasy" },
 ];
