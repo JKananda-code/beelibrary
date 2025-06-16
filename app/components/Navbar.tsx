@@ -6,23 +6,23 @@ import Image from "next/image";
 const Navbar = () => {
   return (
     <nav className="bg-cyan-100 text-black p-4">
-      <div className="container mx-auto flex justify-between pl-20">
+      <div className="container mx-auto flex justify-between items-center">
         <div>
         <Link href="/">
            <Image src="/BeeLogo.jpeg"
                 alt="Logo"
-                height={100}
+                height={50}
                 width={50}
                 />
         </Link>
-        </div>
-        <div className="flex justify-end space-x-4 text-xl font-bold ">
+       </div>
+        <div className="flex justify-between space-x-4 text-2xl font-bold ">
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
           <Link href="/dashboard">Dashboard</Link>
           <Link href="/location">Location</Link>
         </div>
-      </div>
+        </div> 
     </nav>
   );
 };
