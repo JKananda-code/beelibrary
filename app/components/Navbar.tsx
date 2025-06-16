@@ -9,7 +9,7 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between">
         <div>
         <Link href="/">
-           <Image src="/Final-logo.png"
+           <Image src="/BeeLogo.jpeg"
                 alt="Logo"
                 height={150}
                 width={100}
