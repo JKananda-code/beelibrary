@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <nav className="bg-cyan-200 text-black p-4">
       <div className="flex justify-between items-center py-4">
-        <div className="w-1/4 pr-2 sm:pr-8 md;pr-12">
+        <div className="w-1/4 pr-4 sm:pr-8 md:pr-12">
         <Link href="/">
            <Image src="/BeeLogo.jpeg"
                 alt="Logo"
