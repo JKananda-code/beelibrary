@@ -1,12 +1,26 @@
-
+import Image from "next/image";
 export default function About() {
   return (
     <div>
       <main className="container mx-auto py-10 px-4">
-        <h1 className="text-4xl font-bold text-center text-cyan-500">THE LITERARY BEE</h1>
-        <p className="text-lg text-center italic text-gray-600 mt-2">
-          "Where stories take flight and transformation begins"
-        </p>
+        <div className="">
+        <div className="flex items-center justify-center">  
+        <Image
+          src="/The-Bee.png"
+          alt="Book Image"
+          height="1000"
+          width="500"
+        />
+        </div>
+        </div>
+       <section className="mt-10 text-center">  
+          <h1 className="text-lg text-center text-gray-600 mt-4 max-w-3xl mx-auto">
+            When readers place orders from distant regions—be it <span className="italic">Mombasa</span>, <span className="italic">Kisumu</span>, <span className="italic">Mandera</span>, or <span className="italic">Turkana</span>—we do the legwork. We gather their requested titles locally and consolidate them at our central hub here in Nairobi.
+          </h1>
+          <p className="text-gray-700 text-lg">
+            Customers have the convenience of picking up their books at our shop, or choosing to have them sent
+          </p>
+        </section>
         {/* Vision Section */}
         <section className="mt-10 text-center">
           <h2 className="text-3xl font-semibold text-gray-800">VISION</h2>
