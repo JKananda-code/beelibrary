@@ -6,7 +6,7 @@ import Image from "next/image";
 const Navbar = () => {
   return (
     <nav className="bg-cyan-200 text-black p-4">
-      <div className="container mx-auto flex justify-between items-center py-4">
+      <div className="flex justify-between items-center py-4">
         <div className="w-1/4">
         <Link href="/">
            <Image src="/BeeLogo.jpeg"
