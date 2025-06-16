@@ -18,7 +18,6 @@ const Navbar = () => {
        </div>
         <div className="flex justify-end space-x-4 text-2xl font-bold w-3/4">
           <Link href="/about">About</Link>
-          <Link href="/contact">Contact</Link>
           <Link href="/dashboard">Dashboard</Link>
           <Link href="/location">Location</Link>
         </div>
