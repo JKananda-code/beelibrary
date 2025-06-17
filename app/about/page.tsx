@@ -13,13 +13,13 @@ export default function About() {
         />
         </div>
         </div>
-       <section className="mt-10 text-center">  
-          <h1 className="text-lg text-center text-orange-500 mt-4 max-w-3xl mx-auto">
+       <section className="mt-10 text-center"> 
+        <div className="text-lg text-center text-orange-500 mt-4 max-w-3xl mx-auto">
             When readers place orders from distant regions—be it <span className="italic">Mombasa</span>, <span className="italic">Kisumu</span>, <span className="italic">Mandera</span>, or <span className="italic">Turkana</span>—we do the legwork. We gather their requested titles locally and consolidate them at our central hub here in Nairobi.
-          </h1>
-          <p className="text-orange-500 text-lg">
-            Customers have the convenience of picking up their books at our shop, or choosing to have them sent
-          </p>
+        </div>
+          <div className="text-lg text-center text-orange-500 mt-4 max-w-3xl mx-auto">
+            Customers have the convenience of picking up their books at our shop, or choosing to have them sent, saving a ton of time!
+         </div>  
         </section>
         {/* Vision Section */}
         <section className="mt-10 text-center">
