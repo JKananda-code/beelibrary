@@ -7,7 +7,6 @@ export default function Location() {
         <main className="container mx-auto py-10 px-4">
         <h1 className="text-4xl font-bold text-yellow-500 text-center mb-4">Our Location</h1>
         <h2 className="text-lg font-bold text-center mt-4">Nairobi Central Business District (CBD)</h2>
-        <p className="text-lg font-bold  text-center mt-4 mb-4">Next to Tea Room Guest House</p>
         <p className="text-lg font-bold  text-green-500 text-center mt-4 mb-4">Telephone: 0710 878421</p>
     <div className='flex justify-center mb-10'>
         <Image
@@ -17,6 +16,9 @@ export default function Location() {
         height={300}
         priority
          />
+    </div> 
+    <div>
+      <p className="text-lg font-bold  text-center mt-4 mb-4">Next to Tea Room Guest House</p>
     </div> 
     <div className="text-4xl text-center italic text-green-600 mb-10">
           “Nairobi CBD: The beating heart of our bookshop logistics”
