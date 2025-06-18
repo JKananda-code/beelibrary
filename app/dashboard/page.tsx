@@ -1,8 +1,10 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
+
 export default function Dashboard() {
-  interface Book{
+   interface Book{
     id:number;
     title:string;
     author:string;
@@ -11,7 +13,8 @@ export default function Dashboard() {
   const [books, setBooks] = useState<Book[]>([]);
   const [newBook, setNewBook] = useState({ title: "", author: "", genre: "" });
 
-  // Fetch books from API
+
+  // Fetch books
   useEffect(() => {
     async function fetchBooks() {
       const res = await fetch("/api/books");
@@ -21,7 +24,7 @@ export default function Dashboard() {
     fetchBooks();
   }, []);
 
-  // Handle form submission to add a book
+  // Handle adding books
   async function handleAddBook(e: React.FormEvent) {
     e.preventDefault();
     const res = await fetch("/api/books", {
@@ -31,13 +34,26 @@ export default function Dashboard() {
     });
 
     const addedBook = await res.json();
-    setBooks([...books, addedBook]); // Update state to show new book
-    setNewBook({ title: "", author: "", genre: "" }); // Clear form
+    setBooks([...books, addedBook]); 
+    setNewBook({ title: "", author: "", genre: "" });
   }
+
+  // Handle deleting books
+  async function handleDeleteBook(id: number) {
+    await fetch("/api/books", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id }),
+    });
+
+    setBooks(books.filter(book => book.id !== id));
+  }
+
   return (
     <div>
       <main className="container mx-auto py-10">
         <h1 className="text-3xl font-bold text-center">Dashboard</h1>
+
         {/* Add Book Form */}
         <div className="mt-6 p-4 bg-white shadow-md rounded-md">
           <h2 className="text-xl font-semibold">Add a New Book</h2>
@@ -81,6 +97,12 @@ export default function Dashboard() {
                 <h3 className="font-bold">{book.title}</h3>
                 <p>Author: {book.author}</p>
                 <p>Genre: {book.genre}</p>
+                <button
+                  className="mt-2 bg-red-500 text-white px-3 py-1 rounded-md"
+                  onClick={() => handleDeleteBook(book.id)}
+                >
+                  Delete
+                </button>
               </div>
             ))}
           </div>
